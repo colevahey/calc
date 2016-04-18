@@ -11,7 +11,8 @@ def main():
             2 - Subtraction
             3 - Multiplication
             4 - Division
-            5 - Quadratics''')
+            5 - Quadratics
+            6 - Trigonometry''')
     type = input("What do you want to do? >> ")
     if type == '1':
         print("You chose addition")
@@ -44,12 +45,27 @@ def main():
         c = input("What is your C value? >> ")
         aos = 0 - float(b)/2*float(a)
         vertex = int(a)*int(aos)^2+int(b)*int(aos)+int(c)
-        root1 = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
-        root2 = (-1*int(b) - math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+        #root1 = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+        #root2 = (-1*int(b) - math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
         print("The y intercept is " + str(c))
         print("The axis of symmetry is " + str(aos))
         print("The vertex is (" + str(aos) + "," + str(vertex) + ")")
-        print("The roots are at " + str(root1) + " and " + str(root2))
+        print("The roots cannot be determined at this time")
+        #print("The roots are at " + str(root1) + " and " + str(root2))
+    elif type == '6':
+        print("You chose trigonometry")
+        reference = input("What is the degree of your reference angle? >> ")
+        whichside = input("Do you already have the measure of the adjacent side(1), the opposite side(2), or the hypotenuse(3)? >> ")
+        length = input("What is the length of the side you have? >> ")
+        if whichside == '1':
+            print("You have the adjacent side")
+            input("YOU WILL GET A WRONG ANSWER RIGHT NOW")
+            opp = math.tan(math.degrees(int(reference)))*int(length)
+            print("The opposite side is " + str(opp))
+            hyp = math.tan(math.degrees(90 - int(reference)))*int(length)
+            print("The hypotenuse is " + str(hyp))
+        else:
+            pass
     else:
         print("INVALID INPUT")
         t.sleep(2)
