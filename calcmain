@@ -39,9 +39,9 @@ def main():
         print("Your answer is " + str(answer))
     elif type == '5':
         print("You chose quadratics")
-        a = input("What is your a value? >> ")
-        b = input("What is your b value? >> ")
-        c = input("What is your c value? >> ")
+        a = input("What is your A value? >> ")
+        b = input("What is your B value? >> ")
+        c = input("What is your C value? >> ")
         aos = 0 - float(b)/2*float(a)
         vertex = int(a)*int(aos)^2+int(b)*int(aos)+int(c)
         root1 = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
