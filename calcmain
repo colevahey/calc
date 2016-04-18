@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+import skilstak.colors as col
+from os import system as sys
+import time as t
+import math
+
+def main():
+    print(col.clear + '''You can do:
+            1 - Addition
+            2 - Subtraction
+            3 - Multiplication
+            4 - Division
+            5 - Quadratics''')
+    type = input("What do you want to do? >> ")
+    if type == '1':
+        print("You chose addition")
+        first = input("What is your first number? >> ")
+        second = input("What is your second number? >> ")
+        answer = int(first) + int(second)
+        print("Your answer is " + str(answer))
+    elif type == '2':
+        print("You chose subtraction")
+        first = input("What is your first number? >> ")
+        second = input("What is your second number? >> ")
+        answer = int(first) - int(second)
+        print("Your answer is " + str(answer))
+    elif type == '3':
+        print("You chose multiplication")
+        first = input("What is your first number? >> ")
+        second = input("What is your second number? >> ")
+        answer = int(first) * int(second)
+        print("Your answer is " + str(answer))
+    elif type == '4':
+        print("You chose division")
+        first = input("What is your first number? >> ")
+        second = input("What is your second number? >> ")
+        answer = int(first)/int(second)
+        print("Your answer is " + str(answer))
+    elif type == '5':
+        print("You chose quadratics")
+        a = input("What is your a value? >> ")
+        b = input("What is your b value? >> ")
+        c = input("What is your c value? >> ")
+        aos = 0 - float(b)/2*float(a)
+        vertex = int(a)*int(aos)^2+int(b)*int(aos)+int(c)
+        root1 = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+        root2 = (-1*int(b) - math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+        print("The y intercept is " + str(c))
+        print("The axis of symmetry is " + str(aos))
+        print("The vertex is (" + str(aos) + "," + str(vertex) + ")")
+        print("The roots are at " + str(root1) + " and " + str(root2))
+    else:
+        print("INVALID INPUT")
+        t.sleep(2)
+        main()
+    
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit()
