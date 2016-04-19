@@ -13,46 +13,52 @@ def main():
             4 - Division
             5 - Quadratics
             6 - Trigonometry''')
-    type = input("What do you want to do? >> ")
-    if type == '1':
+    qwe = input("What do you want to do? >> ").strip()
+    if qwe == '1':
         print("You chose addition")
         first = input("What is your first number? >> ")
         second = input("What is your second number? >> ")
         answer = int(first) + int(second)
         print("Your answer is " + str(answer))
-    elif type == '2':
+    elif qwe == '2':
         print("You chose subtraction")
         first = input("What is your first number? >> ")
         second = input("What is your second number? >> ")
         answer = int(first) - int(second)
         print("Your answer is " + str(answer))
-    elif type == '3':
+    elif qwe == '3':
         print("You chose multiplication")
         first = input("What is your first number? >> ")
         second = input("What is your second number? >> ")
         answer = int(first) * int(second)
         print("Your answer is " + str(answer))
-    elif type == '4':
+    elif qwe == '4':
         print("You chose division")
         first = input("What is your first number? >> ")
         second = input("What is your second number? >> ")
         answer = int(first)/int(second)
         print("Your answer is " + str(answer))
-    elif type == '5':
+    elif qwe == '5':
         print("You chose quadratics")
         a = input("What is your A value? >> ")
         b = input("What is your B value? >> ")
         c = input("What is your C value? >> ")
         aos = 0 - float(b)/2*float(a)
         vertex = int(a)*int(aos)^2+int(b)*int(aos)+int(c)
-        #root1 = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
-        #root2 = (-1*int(b) - math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
         print("The y intercept is " + str(c))
         print("The axis of symmetry is " + str(aos))
         print("The vertex is (" + str(aos) + "," + str(vertex) + ")")
-        print("The roots cannot be determined at this time")
-        #print("The roots are at " + str(root1) + " and " + str(root2))
-    elif type == '6':
+        if int(b) > 4*int(a)*int(c):
+            root1 = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+            root2 = (-1*int(b) - math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+            message = "The roots are at " + str(root1) + " and " + str(root2)
+        elif int(b) < 4*int(a)*int(c):
+            message = "There are no real roots"
+        else:
+            root = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+            message = "The root is at " + str(root)
+        print(message)
+    elif qwe == '6':
         print("You chose trigonometry")
         reference = input("What is the degree of your reference angle? >> ")
         whichside = input("Do you already have the measure of the adjacent side(1), the opposite side(2), or the hypotenuse(3)? >> ")
