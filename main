@@ -48,22 +48,22 @@ def main():
         that = float(b)*float(aos)
         thus = float(c)
         xvertex = this + that + thus
+        begin = -1*float(b)
+        middle = float(b)*float(b)
+        end = 4*float(a)*float(c)
+        squareroot = middle - end
+        final = 2*float(a)
         print("The y intercept is " + str(c))
         print("The axis of symmetry is " + str(aos))
         print("The vertex is (" + str(aos) + "," + str(xvertex) + ")")
         if int(b) > 4*int(a)*int(c):
-            begin = -1*float(b)
-            middle = float(b)*float(b)
-            end = 4*float(a)*float(c)
-            squareroot = middle - end
-            final = 2*float(a)
             root1 = (begin + math.sqrt(squareroot))/final
             root2 = (begin - math.sqrt(squareroot))/final
             message = "The roots are at " + str(root1) + " and " + str(root2)
-        elif float(b)-(4*float(a)*float(c))<0:
+        elif squareroot < 0:
             message = "There are no real roots"
         else:
-            root = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+            root = begin/final
             message = "There is only one root and it is at " + str(root)
         print(message)
     elif qwe == '6':
