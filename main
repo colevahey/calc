@@ -43,20 +43,28 @@ def main():
         a = input("What is your A value? >> ")
         b = input("What is your B value? >> ")
         c = input("What is your C value? >> ")
-        aos = 0 - float(b)/2*float(a)
-        vertex = int(a)*int(aos)^2+int(b)*int(aos)+int(c)
+        aos = 0 - int(b)/(2*int(a))
+        this = float(a)*float(aos)*float(aos)
+        that = float(b)*float(aos)
+        thus = float(c)
+        xvertex = this + that + thus
         print("The y intercept is " + str(c))
         print("The axis of symmetry is " + str(aos))
-        print("The vertex is (" + str(aos) + "," + str(vertex) + ")")
+        print("The vertex is (" + str(aos) + "," + str(xvertex) + ")")
         if int(b) > 4*int(a)*int(c):
-            root1 = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
-            root2 = (-1*int(b) - math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
+            begin = -1*float(b)
+            middle = float(b)*float(b)
+            end = 4*float(a)*float(c)
+            squareroot = middle - end
+            final = 2*float(a)
+            root1 = (begin + math.sqrt(squareroot))/final
+            root2 = (begin - math.sqrt(squareroot))/final
             message = "The roots are at " + str(root1) + " and " + str(root2)
-        elif int(b) < 4*int(a)*int(c):
+        elif float(b)-(4*float(a)*float(c))<0:
             message = "There are no real roots"
         else:
             root = (-1*int(b) + math.sqrt(int(b)^2 - 4*int(a)*int(c)))/2*int(a)
-            message = "The root is at " + str(root)
+            message = "There is only one root and it is at " + str(root)
         print(message)
     elif qwe == '6':
         print("You chose trigonometry")
