@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+Author="Cole Vahey"
 
 import skilstak.colors as col
 from os import system as sys
@@ -11,80 +12,105 @@ def main():
             2 - Subtraction
             3 - Multiplication
             4 - Division
-            5 - Quadratics
-            6 - Trigonometry''')
+            5 - Pythagorean Theorum
+            6 - Quadratic Equation''')
     qwe = input("What do you want to do? >> ").strip()
     if qwe == '1':
-        print("You chose addition")
-        first = input("What is your first number? >> ")
-        second = input("What is your second number? >> ")
-        answer = int(first) + int(second)
-        print("Your answer is " + str(answer))
+        addition()
     elif qwe == '2':
-        print("You chose subtraction")
-        first = input("What is your first number? >> ")
-        second = input("What is your second number? >> ")
-        answer = int(first) - int(second)
-        print("Your answer is " + str(answer))
+        subtraction()
     elif qwe == '3':
-        print("You chose multiplication")
-        first = input("What is your first number? >> ")
-        second = input("What is your second number? >> ")
-        answer = int(first) * int(second)
-        print("Your answer is " + str(answer))
+        multiplication()
     elif qwe == '4':
-        print("You chose division")
-        first = input("What is your first number? >> ")
-        second = input("What is your second number? >> ")
-        answer = int(first)/int(second)
-        print("Your answer is " + str(answer))
+        division()
     elif qwe == '5':
-        print("You chose quadratics")
-        a = input("What is your A value? >> ")
-        b = input("What is your B value? >> ")
-        c = input("What is your C value? >> ")
-        aos = 0 - int(b)/(2*int(a))
-        this = float(a)*float(aos)*float(aos)
-        that = float(b)*float(aos)
-        thus = float(c)
-        xvertex = this + that + thus
-        begin = -1*float(b)
-        middle = float(b)*float(b)
-        end = 4*float(a)*float(c)
-        squareroot = middle - end
-        final = 2*float(a)
-        print("The y intercept is " + str(c))
-        print("The axis of symmetry is " + str(aos))
-        print("The vertex is (" + str(aos) + "," + str(xvertex) + ")")
-        if int(b) > 4*int(a)*int(c):
-            root1 = (begin + math.sqrt(squareroot))/final
-            root2 = (begin - math.sqrt(squareroot))/final
-            message = "The roots are at " + str(root1) + " and " + str(root2)
-        elif squareroot < 0:
-            message = "There are no real roots"
-        else:
-            root = begin/final
-            message = "There is only one root and it is at " + str(root)
-        print(message)
+        pythagorean()
     elif qwe == '6':
-        print("You chose trigonometry")
-        reference = input("What is the degree of your reference angle? >> ")
-        whichside = input("Do you already have the measure of the adjacent side(1), the opposite side(2), or the hypotenuse(3)? >> ")
-        length = input("What is the length of the side you have? >> ")
-        if whichside == '1':
-            print("You have the adjacent side")
-            input("YOU WILL GET A WRONG ANSWER RIGHT NOW")
-            opp = math.tan(math.degrees(int(reference)))*int(length)
-            print("The opposite side is " + str(opp))
-            hyp = math.tan(math.degrees(90 - int(reference)))*int(length)
-            print("The hypotenuse is " + str(hyp))
-        else:
-            pass
+        quadratics()
     else:
         print("INVALID INPUT")
-        t.sleep(2)
+        input("Press enter to try again")
         main()
     
+def addition():
+    print("You chose addition")
+    first = input("What is your first number? >> ")
+    second = input("What is your second number? >> ")
+    answer = int(first) + int(second)
+    print("Your answer is " + str(answer))
+
+def subtraction():
+    print("You chose subtraction")
+    first = input("What is your first number? >> ")
+    second = input("What is your second number? >> ")
+    answer = int(first) - int(second)
+    print("Your answer is " + str(answer))
+
+def multiplication():
+    print("You chose multiplication")
+    first = input("What is your first number? >> ")
+    second = input("What is your second number? >> ")
+    answer = int(first) * int(second)
+    print("Your answer is " + str(answer))
+
+def division():
+    print("You chose division")
+    first = input("What is your first number? >> ")
+    second = input("What is your second number? >> ")
+    answer = int(first)/int(second)
+    print("Your answer is " + str(answer))
+
+def pythagorean():
+    print("You chose pythagorean theorum")
+    hyp = input("Do you have your hypotenuse[Y/N]? >> ")
+    if hyp.title() == 'Y':
+        a = input("What is the hypotenuse? >> ")
+        b = input("What is the other side? >> ")
+        if int(a) < int(b):
+            print("That is impossible")
+            input("[Press enter to continue]")
+            pythagorean()
+        else:
+            final = (float(a)*float(a))-(float(b)*float(b))
+            finalside = math.sqrt(final)
+    elif hyp.title() == 'N':
+        a = input("What is your first side? >> ")
+        b = input("What is your second side? >> ")
+        final = (float(a)*float(a))+(float(b)*float(b))
+        finalside = math.sqrt(final)
+    else:
+        pythagorean()
+    print("Your final side is " + str(finalside))
+
+def quadratics():
+    print("You chose quadratics")
+    a = input("What is your A value? >> ")
+    b = input("What is your B value? >> ")
+    c = input("What is your C value? >> ")
+    aos = 0 - int(b)/(2*int(a))
+    this = float(a)*float(aos)*float(aos)
+    that = float(b)*float(aos)
+    thus = float(c)
+    xvertex = this + that + thus
+    begin = -1*float(b)
+    middle = float(b)*float(b)
+    end = 4*float(a)*float(c)
+    squareroot = middle - end
+    final = 2*float(a)
+    print("The y intercept is " + str(c))
+    print("The axis of symmetry is " + str(aos))
+    print("The vertex is (" + str(aos) + "," + str(xvertex) + ")")
+    if int(b) > 4*int(a)*int(c):
+        root1 = (begin + math.sqrt(squareroot))/final
+        root2 = (begin - math.sqrt(squareroot))/final
+        message = "The roots are at " + str(root1) + " and " + str(root2)
+    elif squareroot < 0:
+        message = "There are no real roots"
+    else:
+        root = begin/final
+        message = "There is only one root and it is at " + str(root)
+    print(message)
+
 if __name__ == '__main__':
     try:
         main()
