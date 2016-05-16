@@ -13,7 +13,8 @@ def main():
             3 - Multiplication
             4 - Division
             5 - Pythagorean Theorum
-            6 - Quadratic Equation''')
+            6 - Quadratic Equation
+            7 - Distance Formula''')
     qwe = input("What do you want to do? >> ").strip()
     if qwe == '1':
         addition()
@@ -27,6 +28,8 @@ def main():
         pythagorean()
     elif qwe == '6':
         quadratics()
+    elif qwe == '7':
+        distance()
     else:
         print("INVALID INPUT")
         input("Press enter to try again")
@@ -110,6 +113,19 @@ def quadratics():
         root = begin/final
         message = "There is only one root and it is at " + str(root)
     print(message)
+
+def distance():
+    print("You chose Distance Formula")
+    point1x = input("What is the X value of your first point? >> ")
+    point1y = input("What is the Y value of your first point? >> ")
+    point2x = input("What is the X value of your second point? >> ")
+    point2y = input("What is the Y value of your second point? >> ")
+    a = int(point1x) - int(point2x)
+    b = int(point1y) - int(point2y)
+    asquared = a*a
+    bsquared = b*b
+    answer = math.sqrt(a + b)
+    print("The distance between your two points is " + str(answer) + " units")
 
 if __name__ == '__main__':
     try:
