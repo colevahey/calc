@@ -108,7 +108,10 @@ def quadratics():
         root2 = (begin - math.sqrt(squareroot))/final
         message = "The roots are at " + str(root1) + " and " + str(root2)
     elif squareroot < 0:
-        message = "There are no real roots"
+        root1 = begin/final
+        root2 = begin/final
+        imaginary = math.sqrt(-1*squareroot)/final
+        message = "The two imaginary roots are at " + str(root1) + "+" + str(imaginary) + "i" + " and " + str(root2) + "-" + str(imaginary) + "i"
     else:
         root = begin/final
         message = "There is only one root and it is at " + str(root)
