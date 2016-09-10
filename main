@@ -127,7 +127,7 @@ def distance():
     b = int(point1y) - int(point2y)
     asquared = a*a
     bsquared = b*b
-    answer = math.sqrt(a + b)
+    answer = math.sqrt(asquared + bsquared)
     print("The distance between your two points is " + str(answer) + " units")
 
 if __name__ == '__main__':
