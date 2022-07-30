@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 Author="Cole Vahey"
 
-import skilstak.colors as col
 from os import system as sys
 import time as t
 import math
@@ -14,7 +13,7 @@ from quadratic import quadratics
 from distance import distance
 
 def main():
-    print(col.clear + '''You can do:
+    print('''You can do:
             1 - Addition
             2 - Subtraction
             3 - Multiplication
